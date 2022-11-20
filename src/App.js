@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [name, setName] = useState('')
+  const [lastName, setLastName] = useState('')
+
+  // const handleClick = (event) => {
+  //   console.log(name)
+  //   // console.log(e.target.value)
+  //   if(event.target.id === 'lastname'){
+  //     setLastName(event.currentTarget.value)
+  //   }
+  //   if(event.target.id === 'name'){
+  //     setName(event.currentTarget.value)
+  //   }
+  // }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input placeholder='Фамилия' id='lastname' onChange={(event) => setLastName(event.target.value)}></input>
+      <input  placeholder='Имя' id='name' onChange={(event) => setName(event.currentTarget.value)} ></input>
+      <p> Фамилия: {lastName} </p>
+      <p>Имя: {name} </p>
     </div>
   );
 }
